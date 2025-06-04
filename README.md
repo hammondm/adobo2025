@@ -131,13 +131,13 @@ I generated a set of features based entirely on intuition. These include:
 
 With those rules in hand, Each item in the COALAS dataset was used for training. Each item was scored with respect to the rules above and then converted to *z*-scores.
 
-Using the `reference.csv` file for testing, this got an $F1$ around $.6$.
+Using the `reference.csv` file for testing, this got an $F_1$ around $.6$.
 
 ### Simple neural net
 
 The logistic regression model did not include interactions between factors, so I implemented a neural net with `pytorch`. The architecture was extremely simple: 3 layers with the same dimensions as the input. There was a final output layer that produced a single output value. The activation function for all layers was sigmoid.
 
-Again testing with `reference.csv` and various numbers of epochs and different batch sizes, this reached $F1$ values as high as $.65$.
+Again testing with `reference.csv` and various numbers of epochs and different batch sizes, this reached $F_1$ values as high as $.65$.
 
 ### Simple neural net + rules
 
@@ -147,4 +147,4 @@ I augmented the neural net with a rule-based system. That is, I applied rules to
 1. All capitalized sequences of up to 3 words are borrowings.
 1. If a word appears in any of the English wordlists and does not appear in the Spanish wordlist, then it's a borrowing.
 
-This approach reached an $F1$ of about $.74$.
+This approach reached an $F_1$ of about $.74$.
